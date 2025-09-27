@@ -1,12 +1,8 @@
-# Google Maps Packet Tracing via Wireshark
-## Goal of the Project:
-The main objective of this project was to track the origin and destination of data that is present on a network. 
-
 # Advanced Network Threat Detection System
 
 A sophisticated AI/ML/DL-based network traffic analysis system that can classify network packets as legitimate or malicious, with special focus on detecting Command & Control (C&C) servers, botnet communications, and other advanced persistent threats.
 
-## Features
+## 🚀 Features
 
 ### Core Capabilities
 - **Real-time Network Monitoring**: Live packet capture and analysis
@@ -35,7 +31,7 @@ A sophisticated AI/ML/DL-based network traffic analysis system that can classify
 - **SSL/TLS Analysis**: Encrypted traffic examination
 - **DNS Tunneling Detection**: Identification of data exfiltration through DNS
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 network-packet-tracing/
@@ -50,7 +46,7 @@ network-packet-tracing/
 └── THREAT_DETECTION_README.md       # This comprehensive guide
 ```
 
-## Installation
+## 🛠️ Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -66,7 +62,7 @@ pip install -r requirements.txt
 python demo.py
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Option 1: Run Demo (Recommended)
 ```bash
@@ -84,10 +80,53 @@ python network_threat_classifier.py
 python advanced_threat_detector.py
 ```
 
+## 📊 Usage Examples
 
-# Images
-<img width="1680" alt="image" src="https://github.com/user-attachments/assets/6cb7e6db-7a8e-46eb-a99e-8db61de0131d">
+### Basic Threat Classification
+```python
+from network_threat_classifier import NetworkThreatClassifier
 
+# Initialize classifier
+classifier = NetworkThreatClassifier('wire.pcap')
+
+# Parse and analyze packets
+X, y = classifier.parse_pcap_file()
+
+# Prepare data for ML
+X_train, X_test, y_train, y_test = classifier.prepare_data()
+
+# Train models
+classifier.train_models(X_train, X_test, y_train, y_test)
+
+# Detect C&C servers
+c2_servers = classifier.detect_c2_servers()
+
+# Generate report
+classifier.generate_threat_report()
+```
+
+### Advanced Real-time Monitoring
+```python
+from advanced_threat_detector import AdvancedThreatDetector
+
+# Initialize detector
+detector = AdvancedThreatDetector('wire.pcap')
+
+# Parse packets
+X, y = detector.parse_pcap_file()
+
+# Build ensemble model
+X_train, X_test, y_train, y_test = detector.prepare_data()
+detector.build_ensemble_model(X_train, y_train)
+
+# Start real-time monitoring
+detector.real_time_monitoring(interface='eth0')
+
+# Stop monitoring when done
+detector.stop_monitoring()
+```
+
+## 🔍 Feature Engineering
 
 The system extracts over 50 sophisticated features from network packets:
 
@@ -121,7 +160,7 @@ The system extracts over 50 sophisticated features from network packets:
 - Unusual traffic characteristics
 - Suspicious timing patterns
 
-## Threat Detection Capabilities
+## 🎯 Threat Detection Capabilities
 
 ### Command & Control (C&C) Detection
 - **High Entropy DNS Queries**: C&C servers often use randomized domain names
@@ -147,7 +186,7 @@ The system extracts over 50 sophisticated features from network packets:
 - **Credential Theft**: Detection of authentication bypass attempts
 - **Persistence Mechanisms**: Identification of backdoor installations
 
-## Model Performance
+## 📈 Model Performance
 
 The system uses ensemble learning to achieve high accuracy:
 
@@ -158,26 +197,132 @@ The system uses ensemble learning to achieve high accuracy:
 - **LSTM**: ~93% accuracy for sequence analysis
 - **Ensemble**: ~97% accuracy combining all models
 
+## 🔧 Configuration
 
-## Threat Intelligence Sources
+### Threat Intelligence
+Update the threat intelligence feeds in the code:
+```python
+# Known malicious IPs
+self.known_malicious_ips = {
+    '192.168.1.100', '10.0.0.50',  # Add your threat intel
+}
 
-### **Free Sources (No API Key Required)**
-| Source | Description | Update Frequency |
-|--------|-------------|------------------|
-| Malware Domains | Known malware domains | Daily |
-| Malware IPs | Known malicious IPs | Daily |
-| Blocklist.de | Various blocklists | Real-time |
-| Emerging Threats | Compromised IPs | Daily |
-| Spamhaus DROP | Spam and malware IPs | Daily |
-| Spamhaus EDROP | Extended DROP list | Daily |
-| Tor Exit Nodes | Current Tor exit nodes | Real-time |
+# Known malicious domains
+self.known_malicious_domains = {
+    'malicious-site.com', 'c2-server.net',  # Add your threat intel
+}
+```
 
-### **API Sources (Require API Keys)**
-| Source | Description | API Limit | Cost |
-|--------|-------------|-----------|------|
-| VirusTotal | Comprehensive malware analysis | 500 requests/day (free) | Free tier available |
-| AbuseIPDB | IP reputation scoring | 1,000 requests/day (free) | Free tier available |
-| Shodan | Internet device intelligence | 100 results/month (free) | Free tier available |
-| OTX | Open threat exchange | 10,000 requests/day (free) | Free |
-| MISP | Malware information sharing | Varies | Free |
-| CIRCL | Incident response data | Varies | Free |
+### Alert Thresholds
+Adjust sensitivity levels:
+```python
+# Alert threshold (0.0 to 1.0)
+detector.alert_threshold = 0.8  # Higher = fewer false positives
+
+# C&C detection threshold
+c2_candidates = detector.detect_c2_servers(threshold=0.7)
+```
+
+## 📊 Output and Reporting
+
+### Console Output
+- Real-time threat alerts
+- Classification results
+- C&C server detection
+- Comprehensive threat reports
+
+### Visualizations
+- Threat distribution charts
+- Packet size analysis
+- DNS entropy distribution
+- Domain age analysis
+- Protocol usage patterns
+- Temporal analysis
+- Alert timelines
+
+### Generated Files
+- `threat_analysis_dashboard.png`: Basic analysis visualization
+- `advanced_threat_analysis_dashboard.png`: Advanced analysis visualization
+
+## 🚨 Security Alerts
+
+The system generates different types of alerts:
+
+- **CRITICAL**: High confidence malicious activity (score > 0.9)
+- **HIGH**: Likely malicious activity (score > 0.8)
+- **MEDIUM**: Suspicious activity detected (score > 0.6)
+- **LOW**: Potential security concern (score > 0.4)
+
+## 🔒 Privacy and Security
+
+- **Local Processing**: All analysis is performed locally
+- **No Data Transmission**: No packet data is sent to external services
+- **Secure Storage**: Temporary data is handled securely
+- **Configurable Logging**: Adjustable logging levels for sensitive environments
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Import Errors**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **PCAP File Not Found**
+   - Ensure `wire.pcap` is in the project directory
+   - Check file permissions
+
+3. **Memory Issues**
+   - Reduce batch size in model training
+   - Process smaller PCAP files
+
+4. **Real-time Monitoring Issues**
+   - Check network interface permissions
+   - Run with appropriate privileges
+
+### Performance Optimization
+
+- **Large PCAP Files**: Process in chunks
+- **Real-time Monitoring**: Adjust sampling rate
+- **Model Training**: Use GPU acceleration if available
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- **dpkt**: Python packet parsing library
+- **scapy**: Network packet manipulation
+- **scikit-learn**: Machine learning algorithms
+- **tensorflow**: Deep learning framework
+- **MaxMind**: Geolocation database
+
+## 📞 Support
+
+For questions, issues, or contributions:
+- Create an issue in the repository
+- Check the troubleshooting section
+- Review the documentation
+
+## 🔮 Future Enhancements
+
+- **Cloud Integration**: AWS/Azure threat intelligence feeds
+- **API Development**: REST API for integration
+- **Mobile App**: Mobile monitoring interface
+- **Machine Learning Pipeline**: Automated model retraining
+- **Threat Hunting**: Advanced threat hunting capabilities
+- **Incident Response**: Automated response workflows
+
+---
+
+**⚠️ Disclaimer**: This tool is for educational and authorized security testing purposes only. Always ensure you have proper authorization before monitoring network traffic.
