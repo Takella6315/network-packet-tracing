@@ -1,7 +1,3 @@
-# Google Maps Packet Tracing via Wireshark
-## Goal of the Project:
-The main objective of this project was to track the origin and destination of data that is present on a network. 
-
 # Advanced Network Threat Detection System
 
 A sophisticated AI/ML/DL-based network traffic analysis system that can classify network packets as legitimate or malicious, with special focus on detecting Command & Control (C&C) servers, botnet communications, and other advanced persistent threats.
