@@ -43,7 +43,6 @@ network-packet-tracing/
 ├── wire.pcap                        # Sample packet capture file
 ├── GeoLiteCity.dat                  # Geolocation database
 ├── README.md                        # Original project documentation
-└── THREAT_DETECTION_README.md       # This comprehensive guide
 ```
 
 ## Installation
